@@ -3,5 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def index(request):
-    return HttpResponse("Hello, world. Welcome to Precious Metals")
+def home(request):
+    return render(request, 'market/home.html')
+
+def about(request):
+    return render (request, 'market/about.html')
