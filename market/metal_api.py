@@ -1,6 +1,6 @@
 from metalpriceapi.client import Client
 
-api_key = '92d9559404fbd0cad14dbfaf7cf74c44'
+api_key = 'METAL_API_KEY'
 client = Client(api_key)
 
 
