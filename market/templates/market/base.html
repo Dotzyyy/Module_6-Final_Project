@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'market/css/style.css' %}">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/0f9f99c030.js" crossorigin="anonymous"></script>
     
     
                 {% if title %}
@@ -23,32 +25,36 @@
         
     </head>
     <body>
-        <header>
-            <nav>
-                <div>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav ml-auto">
                     <!-- Main Navbar -->
-                    <a href="#">
-                        Home
-                    </a>
-                    <a href="#">
-                        Shop
-                    </a>
-                    <a href="#">
-                        News
-                    </a>
-                    <a href="#">
-                        About
-                    </a>
+                        <a class="nav-item nav-link" href="#">
+                            Home
+                        </a>
+                        <a class="nav-item nav-link" href="#">
+                            Shop
+                        </a>
+                        <a class="nav-item nav-link" href="#">
+                            News
+                        </a>
+                        <a class="nav-item nav-link" href="#">
+                            About
+                        </a>
+                    </div>
 
                     <!-- Login / My Profile Navbar-->
 
-                    <div>
-                        <a href="#">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="#">
                             Login
                         </a>
-                        <a href="#">
+                        <a class="nav-item nav-link" href="#">
                             Register
                         </a>
+                    </div>
                     </div>
 
                 </div>
@@ -61,51 +67,123 @@
             </div>
         </main>
     </body>
-    <footer>
-        <div>
-            <div>
-                <h3>Contact</h3>
-                <ul>
-                    <li>
-                        Email
-                    </li>
-                    <li>
-                        Phone
-                    </li>
-                    <li>
-                        Contact Form
-                    </li>
-                </ul>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary">
+    
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <div class="d-flex justify-content-center justify-content-lg-between p-4">
+                <!-- Left -->
+                
+                <!-- Left -->
+            
+                <!-- Right -->
+                <div>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fab fa-google"></i>
+                  </a>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="#" class="me-4 text-decoration-none text-reset">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+                <!-- Right -->
             </div>
-            <div>
-                <h3>Explore</h3>
-                <ul>
-                    <li>
-                        All Metals
-                    </li>
-                    <li>
-                        Gold
-                    </li>
-                    <li>
-                        Silver
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3>Resources</h3>
-                <ul>
-                    <li>
-                        News
-                    </li>
-                    <li>
-                        My Profile
-                    </li>
-                    <li>
-                        Quotations
-                    </li>
-                </ul>
-            </div>
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Precious Metals
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
         </div>
-
-    </footer>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2024 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">David Sexton</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 </html>    

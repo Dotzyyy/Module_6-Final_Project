@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* Navbar */
+
+nav {
+    padding: 2rem, 0, 2rem, 0;
+    border-bottom: solid 1px #313131;
+    
+}
+
+.nav-link {
+    color: #FFFFFF;
+
+}
+
+.nav-link:hover {
+    color: #B2B2B2;
+
+}
+
+/* Home */
+
+
+#welcome-banner {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    border-bottom: solid 1px #313131;
+    
+}
+
+#welcome-banner .mask {
+    background-color: rgba(0, 0, 0, 0.145);
+    
+    
+}
+
+
+.home-product-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.home-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+#nine-gold {
+    background-color: #8A226F;
+}
+#eight-gold {
+    background-color: #984646;
+}
+
+#fine-gold {
+    background-color: #B9712F;
+}
+
+#platinum {
+    background-color: #27B289;
+}
+
+#palladium {
+    background-color: #6479E5;
+}
+
+#fine-silver {
+    background-color: #785098;
+}
+
+/* Footer */
+
+footer {
+    border-top: solid 1px #313131 ;
+}

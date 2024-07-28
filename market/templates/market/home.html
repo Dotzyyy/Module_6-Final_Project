@@ -1,24 +1,30 @@
 {% extends "market/base.html" %}
-{% load static %}
+{% block content %}
 
-    {% block content %}
-    <section>
-        <div>
-            <h2>
-                Welcome to Precious Metals
-            </h2>
-            <p>Placeholder</p>
-
-
-        </div>
-        <div>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+    <!--Welcome Banner-->
+    <section id="welcome-banner" class="p-5 text-center bg-image" class="mask" style="background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"> <!-- "background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"-->
+        
+        <div class="mt-5">
+           <div class="d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <h2 class="mb-3">
+                        Welcome to Precious Metals!
+                    </h2>
+                    <p class="mb-3">Ireland's No.1 Provider of Bullion</p>
+                    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2"
+                        href="#"
+                        role="button">Sign Up</a>
+                    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2"
+                        href="#"
+                        role="button">Login</a>    
+                    
+                </div>
+           </div>
         </div>
 
     </section>
 
-        <section>
+    <section class="d-flex justify-content-center align-items-center h-100 home-product-container">
             <div>
                 <h2>
                     All Metals
@@ -26,35 +32,35 @@
                 <p>Buy Now</p>
 
             </div>
-            <div>
-                <div>
-                    <h3>Product</h3>
+            <div">
+                <div id="nine-gold" class="container">
+                    <h3>9ct Gold</h3>
                     <p>Description</p>
                 </div>
-                <div>
-                    <h3>Product</h3>
+                <div id="eight-gold" class="container">
+                    <h3>18ct Gold</h3>
                     <p>Description</p>
                 </div>
-                <div>
-                    <h3>Product</h3>
+                <div id="fine-gold" class="container">
+                    <h3>Fine Gold</h3>
                     <p>Description</p>
                 </div>
-                <div>
-                    <h3>Product</h3>
+                <div id="platinum" class="container">
+                    <h3>Platinum</h3>
                     <p>Description</p>
                 </div>
-                <div>
-                    <h3>Product</h3>
+                <div id="palladium" class="container">
+                    <h3>Palladium</h3>
                     <p>Description</p>
                 </div>
-                <div>
-                    <h3>Product</h3>
+                <div id="fine-silver" class="container">
+                    <h3>Fine Silver</h3>
                     <p>Description</p>
                 </div>
 
             </div>
-        </section>
-        <section>
+    </section>
+    <section>
             <div>
                 <div>
                     <h2>Follow the Lastest Metal Trends</h2>
@@ -64,8 +70,7 @@
                     <button>Submit</button>
                 </div>
             </div>
-        </section>
-
+    </section>
     
-
-    {% endblock %}
+    
+{% endblock %}
