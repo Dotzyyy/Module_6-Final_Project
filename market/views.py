@@ -8,3 +8,6 @@ def home(request):
 
 def about(request):
     return render (request, 'market/about.html')
+
+def product(request):
+    return render (request, 'market/product.html')
