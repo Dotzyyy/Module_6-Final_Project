@@ -48,22 +48,37 @@
                     <!-- Login / My Profile Navbar-->
 
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="#">
-                            Login
+                      {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'inbox' %}">My Inbox</a>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-item nav-link btn btn-link">Logout</button>
+                        </form>
+                          
+                      {% else %}  
+
+                        <a class="nav-item nav-link" href="{% url 'login' %}">
+                              Login
                         </a>
-                        <a class="nav-item nav-link" href="#">
-                            Register
+                        <a class="nav-item nav-link" href="{% url 'register' %}">
+                              Register
                         </a>
+
+                      {% endif %}  
                     </div>
                     </div>
 
                 </div>
             </nav>
         </header>
-        <main>
+        <main class="container">
             <div>
+            <div >  
                 {% block content %}
                 {% endblock %}
+            </div>    
             </div>
         </main>
     </body>

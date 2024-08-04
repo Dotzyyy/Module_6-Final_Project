@@ -6,6 +6,7 @@ body {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     min-height: 100vh;
     font-size: 0.8rem;
+
 }
 
 
@@ -226,8 +227,6 @@ label.radio input:checked+span {
     outline: none;
     box-shadow: none;
     color: white;
-    -webkit-box-shadow: none;
-    -webkit-user-select: none;
     transition: none
 }
 
