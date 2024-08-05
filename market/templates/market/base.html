@@ -37,7 +37,7 @@
                         <a class="nav-item nav-link" href="#">
                             Shop
                         </a>
-                        <a class="nav-item nav-link" href="#">
+                        <a class="nav-item nav-link" href="{% url 'news-page' %}">
                             News
                         </a>
                         <a class="nav-item nav-link" href="#">
@@ -51,10 +51,10 @@
                       {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
                         <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
-                        <a class="nav-item nav-link" href="{% url 'inbox' %}">My Inbox</a>
+                        <a class="nav-item nav-link" href="#">My Inbox</a>
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button type="submit" class="nav-item nav-link btn btn-link">Logout</button>
+                            <button type="submit">Logout</button>
                         </form>
                           
                       {% else %}  

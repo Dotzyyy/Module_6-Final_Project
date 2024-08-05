@@ -27,46 +27,26 @@
     <section>
         <div>
             <a href="http://www.kitco.com/connecting.html">
-                <img src="http://www.kitconet.com/charts/metals/gold/t24_au_en_eukg_2.gif" BORDER="0" alt="[Most Recent Quotes from www.kitco.com]">
+                <img class="kitco-img" src="http://www.kitconet.com/charts/metals/gold/t24_au_en_eukg_2.gif" BORDER="0" alt="[Most Recent Quotes from www.kitco.com]">
             </a>
         </div>
     </section>
 
     <section class="d-flex justify-content-center align-items-center h-100 home-product-container">
-            <div>
-                <h2>
-                    All Metals
-                </h2>
-                <p>Buy Now</p>
-
+        <div>
+            <h2>
+                All Metals
+            </h2>
+            <p>Buy Now</p>
+        </div>
+        <div class="home-product-list">
+            {% for product in products %}
+            <div id="{{ product.name|slugify }}" class="home-product-item">
+                <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
+                <p>{{ product.description|truncatewords:20 }}</p>
             </div>
-            <div class="home-product-list">
-                <div id="nine-gold" class="home-product-item">
-                    <h3>9ct Gold</h3>
-                    <p>Description</p>
-                </div>
-                <div id="eight-gold" class="home-product-item">
-                    <h3>18ct Gold</h3>
-                    <p>Description</p>
-                </div>
-                <div id="fine-gold" class="home-product-item">
-                    <h3>Fine Gold</h3>
-                    <p>Description</p>
-                </div>
-                <div id="platinum" class="home-product-item">
-                    <h3>Platinum</h3>
-                    <p>Description</p>
-                </div>
-                <div id="palladium" class="home-product-item">
-                    <h3>Palladium</h3>
-                    <p>Description</p>
-                </div>
-                <div id="fine-silver" class="home-product-item">
-                    <h3>Fine Silver</h3>
-                    <p>Description</p>
-                </div>
-
-            </div>
+            {% endfor %}
+        </div>
     </section>
     <section>
             <div>
