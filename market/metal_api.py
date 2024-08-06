@@ -1,14 +1,16 @@
 import logging
+import os
 from decimal import Decimal, InvalidOperation
 from metalpriceapi.client import Client
 from .models import CurrentMetalPrice
-import os
+
 
 logger = logging.getLogger(__name__)
 
 def fetch_prices():
-    api_key = '6b0e4e54e949d402604331b94bc40ddb'
+    api_key = ''
     client = Client(api_key)
+    print(os.getenv('API_KEY'))
 
     try:
         response = client.fetchLive(base='EUR', currencies=['XAU', 'XAG', 'XPT', 'XPD'])
