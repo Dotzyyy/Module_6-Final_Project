@@ -15,6 +15,8 @@ import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -87,7 +89,7 @@ CRONJOBS = [('46 13 * * *', 'django.core.management.call_command', ['metal_api']
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+''' DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'metal_prices',
@@ -97,6 +99,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+'''
+database_url = os.environ.get("DATABASE_URL")
+DATABASES = {
+    'default': dj_database_url.parse(database_url)
+    }
+
 
 
 # Password validation

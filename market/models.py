@@ -15,8 +15,8 @@ class CurrentMetalPrice(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
+    blurb = models.TextField(max_length=20)
     description = models.TextField()
-    
     image = models.ImageField(upload_to='products/')
     weight = models.CharField(max_length=100)
     color = models.CharField(max_length=100)

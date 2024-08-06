@@ -1,64 +1,64 @@
 {% extends "market/base.html" %}
 {% block content %}
 
-    <!--Welcome Banner-->
-    <section id="welcome-banner" class="p-5 text-center bg-image" class="mask" style="background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"> <!-- "background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"-->
-        
-        <div class="mt-5">
-           <div class="d-flex justify-content-center align-items-center h-100">
-                <div>
-                    <h2 class="mb-3">
-                        Welcome to Precious Metals!
-                    </h2>
-                    <p class="mb-3">Ireland's No.1 Provider of Bullion</p>
-                    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2"
-                        href="#"
-                        role="button">Sign Up</a>
-                    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2"
-                        href="#"
-                        role="button">Login</a>    
-                    
-                </div>
-           </div>
-        </div>
+<!--Welcome Banner-->
+<section id="welcome-banner" class="p-5 text-center bg-image" class="mask"
+    style="background-image:url('{{ MEDIA_URL }}metal-banner.jpg');">
+    <!-- "background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"-->
 
-    </section>
-
-    <section>
-        <div>
-            <a href="http://www.kitco.com/connecting.html">
-                <img class="kitco-img" src="http://www.kitconet.com/charts/metals/gold/t24_au_en_eukg_2.gif" BORDER="0" alt="[Most Recent Quotes from www.kitco.com]">
-            </a>
-        </div>
-    </section>
-
-    <section class="d-flex justify-content-center align-items-center h-100 home-product-container">
-        <div>
-            <h2>
-                All Metals
-            </h2>
-            <p>Buy Now</p>
-        </div>
-        <div class="home-product-list">
-            {% for product in products %}
-            <div id="{{ product.name|slugify }}" class="home-product-item">
-                <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
-                <p>{{ product.description|truncatewords:20 }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-    <section>
+    <div class="mt-5">
+        <div class="d-flex justify-content-center align-items-center h-100">
             <div>
-                <div>
-                    <h2>Follow the Lastest Metal Trends</h2>
-                    <p>New Article Every Week</p>
-                </div>
-                <div>
-                    <button>Submit</button>
-                </div>
+                <h2 class="mb-3">
+                    Welcome to Precious Metals!
+                </h2>
+                <p class="mb-3">Ireland's No.1 Provider of Bullion</p>
+                <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Sign Up</a>
+                <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Login</a>
+
             </div>
-    </section>
-    
-    
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <div>
+        <a href="http://www.kitco.com/connecting.html">
+            <img class="kitco-img" src="http://www.kitconet.com/charts/metals/gold/t24_au_en_eukg_2.gif" BORDER="0"
+                alt="[Most Recent Quotes from www.kitco.com]">
+        </a>
+    </div>
+</section>
+
+<section class="d-flex justify-content-center align-items-center h-100 home-product-container">
+    <div>
+        <h2>
+            All Metals
+        </h2>
+        <p>Buy Now</p>
+    </div>
+    <div class="home-product-list">
+        {% for product in products %}
+        <div id="{{ product.name|slugify }}" class="home-product-item">
+            <h3><a href="{% url 'product' product.id %}">{{ product.name }}</a></h3>
+            <p>{{ product.blurb}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+<section>
+    <div>
+        <div>
+            <h2>Follow the Lastest Metal Trends</h2>
+            <p>New Article Every Week</p>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </div>
+</section>
+
+
 {% endblock %}

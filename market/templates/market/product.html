@@ -1,105 +1,66 @@
 {% extends "market/base.html" %}
 {% block content %}
 
-    <section class="container product-page"> 
-        <div id="demo" class="carousel slide" data-ride="carousel"> 
-            <div class="carousel-inner"> 
-                <div class="carousel-item active"> 
-                    <div class="card"> 
-                        
-                        <div class="row"> 
-                            <div class="col-md-6 text-center align-self-center"> 
-                                <img class="img-fluid" src="/media/18y.jpg"> </div> 
-                                <div class="col-md-6 info"> <div class="row title"> <div class="col">
-                                    <h2>18ct Yellow Gold</h2></div> 
-                                    <div class="col text-right">
-                                        <a href="#"><i class="fa fa-heart-o"></i>
-                                        </a>
-                                    </div> 
-                                </div> 
-                                <p>.750 fineness</p> 
-                                <span class="fa fa-star checked"></span> 
-                                <span class="fa fa-star checked"></span> 
-                                <span class="fa fa-star checked"></span> 
-                                <span class="fa fa-star checked"></span> 
-                                <span class="fa fa-star-half-full"></span> 
-                                <span id="reviews">1590 Reviews</span> 
-                                <div class="row price"> 
-                                    <label class="radio"> 
-                                        <input type="radio" name="size1" value="small" checked> 
-                                        <span> <div class="row"><big><b>1.5 oz.</b></big></div> 
-                                            <div class="row">$12.95</div></a> </span> 
-                                        </label> 
-                                        <label class="radio"> 
-                                            <input type="radio" name="size1" value="large"> 
-                                            <span> <div class="row"><big><b>4.4 oz.</b></big></div> <div class="row">$21.95</div></a> 
-                                            </span> </label> </div> </div> </div> 
-                                            
-                                            <div class="row lower"> 
-                                                <div class="col"> 
-                                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                                    <i class="fa fa-arrow-left"></i>
-                                                </a> 
-                                                <a class="carousel-control-next" href="#demo" data-slide="next">
-                                                    <i class="fa fa-arrow-right"></i>
-                                                </a> 
-                                            </div> 
-                                            <div class="col text-right align-self-center"> 
-                                                <button class="btn">Add to cart</button> 
-                                            </div> 
-                                        </div> 
-                    </div> 
+<section class="container product-page">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card">
+
+                    <div class="row">
+                        <div class="col-md-6 text-center align-self-center">
+                            <img class="img-fluid" src="{{ product.image.url }}">
+                        </div>
+                        <div class="col-md-6 info">
+                            <div class="row title">
+                                <div class="col">
+                                    <h2>{{ product.name }}</h2>
+                                </div>
+                                <div class="col text-right">
+                                    <a href="#"><i class="fa fa-heart-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p>{{ product.blurb }}</p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star-half-full"></span>
+                            <span id="reviews">1590 Reviews</span>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="amount-grams">Weight(g):</label>
+                                    <input type="number" id="weight" name="weight" min="1" step="0.01"
+                                        placeholder="min. 1(g)">
+
+                                </div>
+                                <div class="col text-right align-self-center">
+                                    <button class="btn">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="container mt-2 product-info">
             <div class="mr-4 product-blurb">
                 <h3>Description</h3>
-                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. 
-                    Penatibus nostra amet sit magnis adipiscing aliquet lacus a. 
-                    Ultricies morbi senectus nascetur tempus rutrum facilisis. 
-                    Est maximus mi commodo morbi imperdiet velit enim. 
-                    Nisl lectus cubilia interdum duis augue! 
-                    Erat duis fames cubilia facilisi natoque nec. 
-                    Eget libero feugiat rhoncus magna facilisi fames molestie. 
-                    Sagittis integer lacinia duis vel malesuada penatibus cubilia placerat.
-
-                    Dictum taciti risus molestie inceptos est vehicula efficitur. 
-                    Porttitor placerat ipsum convallis felis morbi. 
-                    Nec tempor felis; tristique a montes vitae. 
-                    Adipiscing mattis massa pellentesque ultrices dictum tristique. 
-                    Consequat penatibus montes, elit morbi mollis bibendum nisl cras quam. 
-                    Nostra leo duis curae turpis facilisi aenean faucibus. 
-                    Phasellus vel molestie montes himenaeos maecenas. 
-                    Platea in id ornare ad pulvinar elementum. 
-                    Eget arcu risus id arcu orci primis aliquet mattis. 
-                    Pretium urna risus praesent magna ante vulputate tortor sociosqu vehicula.
-                    
-                    Sapien suspendisse maximus leo tempor montes urna euismod integer. 
-                    Sapien magnis purus dictum nibh risus platea maximus pretium volutpat. 
-                    Egestas sollicitudin mattis habitasse eu enim lacus hendrerit. 
-                    Vel aliquam tincidunt nam aptent sagittis nascetur adipiscing at venenatis. 
-                    Duis tellus pellentesque sem ad placerat commodo quisque. 
-                    Rutrum rutrum augue facilisis lectus ac netus ridiculus pellentesque. 
-                    Augue interdum magnis vel porttitor laoreet.
-                    
-                    Lacinia vel convallis parturient neque ut in. 
-                    Tristique ornare conubia scelerisque dapibus tortor sem. 
-                    Cras phasellus lectus sem quam sit semper. 
-                    Ipsum mauris praesent habitant facilisis aenean neque aliquet molestie sollicitudin. 
-                    Ipsum sociosqu diam tincidunt accumsan egestas. 
-                    Eget rutrum ullamcorper hendrerit at ligula.</p>
+                <p>{{ product.description }}</p>
             </div>
             <div>
                 <h3>Specifications</h3>
-                <p><span>Product Weight:</span> Minimum 1g</p>
-                <p><span>Colour:</span> Yellow</p>
-                <p><span>Country of Origin:</span>South Africa</p>
-                <p><span>Density:</span> 15.50g/cm3</p>
-                <p><span>Melting Range:</span>960°C</p>
+                <p><span>Product Weight:</span> {{product.weight}}</p>
+                <p><span>Colour:</span> {{ product.color }}</p>
+                <p><span>Country of Origin:</span> {{ product.country_of_origin }}</p>
+                <p><span>Density:</span> {{ product.density }}</p>
+                <p><span>Melting Range:</span> {{product.melting_range }}</p>
             </div>
         </div>
-    </section>
-            
-              
+</section>
+
+
 {% endblock %}
