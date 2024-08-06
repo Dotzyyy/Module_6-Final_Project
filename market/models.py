@@ -14,6 +14,16 @@ class CurrentMetalPrice(models.Model):
     
 
 class Product(models.Model):
+
+    METALS = [
+        ('gold', 'Gold'),
+        ('silver', 'Silver'),
+        ('platinum', 'Platinum'),
+        ('palladium', 'Palladium'),
+    ]
+
+
+
     name = models.CharField(max_length=255)
     blurb = models.TextField(max_length=20)
     description = models.TextField()
@@ -23,6 +33,7 @@ class Product(models.Model):
     country_of_origin = models.CharField(max_length=100)
     density = models.CharField(max_length=100)
     melting_range = models.CharField(max_length=100)
+    metal_type = models.CharField(max_length=10, choices=METALS, default='gold')
 
     def __str__(self):
         return self.name

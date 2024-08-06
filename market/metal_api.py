@@ -8,9 +8,9 @@ from .models import CurrentMetalPrice
 logger = logging.getLogger(__name__)
 
 def fetch_prices():
-    api_key = ''
+    api_key = 'METAL_API_KEY'
     client = Client(api_key)
-    print(os.getenv('API_KEY'))
+    print(os.getenv('METAL_API_KEY'))
 
     try:
         response = client.fetchLive(base='EUR', currencies=['XAU', 'XAG', 'XPT', 'XPD'])
