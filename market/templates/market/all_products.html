@@ -1,0 +1,19 @@
+{% extends "market/base.html" %}
+{% block content %}
+<h2>All Products</h2>
+<ul class="all-products-list">
+    {% for item in product_list %}
+    <li class="all-products-item">
+        <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+        <h3>{{ item.product.name }}</h3>
+        <p>{{ item.product.description }}</p>
+        {% if item.metal_price %}
+        <p>{{ item.product.metal_type|title }}, price/(g): €{{ item.metal_price }}/g</p>
+        {% else %}
+        <p>Error.</p>
+        {% endif %}
+        <a href="{% url 'product' item.product.id %}">More Info</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

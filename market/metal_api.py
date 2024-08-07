@@ -8,7 +8,7 @@ from .models import CurrentMetalPrice
 logger = logging.getLogger(__name__)
 
 def fetch_prices():
-    api_key = 'METAL_API_KEY'
+    api_key = (os.getenv('METAL_API_KEY'))
     client = Client(api_key)
     print(os.getenv('METAL_API_KEY'))
 

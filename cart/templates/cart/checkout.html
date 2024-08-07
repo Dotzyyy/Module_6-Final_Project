@@ -1,0 +1,25 @@
+{% extends "market/base.html" %}
+{% block content %}
+<h2>My Cart</h2>
+<ul class="product-list">
+    {% for item in checkout_items %}
+    <li class="product-item">
+        <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+        <h3>{{ item.product.name }}</h3>
+        
+        {% if item.metal_price %}
+        <p>{{ item.product.metal_type|title }}, price/(g): €{{ item.metal_price }}/g</p>
+        {% else %}
+        <p>Error.</p>
+        {% endif %}
+        <p>€{{item.total_price}}</p>
+        <a href="{% url 'cart:remove-item' item.product.pk %}">Remove Item</a>
+    </li>
+    {% endfor %}
+</ul>
+<div>
+    <h3>Final Price</h3>
+    <p>€{{ vat_price }} inc.VAT</p>
+    <p>€{{ final_price }} exc.VAT</p>
+</div>
+{% endblock content %}

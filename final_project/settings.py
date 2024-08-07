@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'market.apps.MarketConfig',
     'news.apps.NewsConfig',
     'users.apps.UsersConfig',
+    'cart.apps.CartConfig',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.admin',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     
 ]
 
@@ -87,8 +89,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'final_project.wsgi.application'
 
-CRONJOBS = [('46 13 * * *', 'django.core.management.call_command', ['metal_api']),]
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -108,6 +108,9 @@ database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
     'default': dj_database_url.parse(database_url)
     }
+
+
+CART_SESSION_ID = 'cart'
 
 print(f"DATABASE_URL: {database_url}")
 print(f"METAL_API_KEY = {METAL_API_KEY}")
