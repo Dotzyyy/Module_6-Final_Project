@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import CheckoutItem
 from market.models import Product
 from market.utils import final_metal_price
@@ -13,6 +13,7 @@ def view_cart(request):
     # Prepare the cart items with their calculated metal prices
     cart_items = [
         {
+            'pk' : item.pk,
             'product': item.product,
             'quantity': item.quantity,
             'metal_price': final_metal_price(item.product),
@@ -46,7 +47,7 @@ def add_item(request, pk):
     return redirect('cart:view-cart')
 
 def remove_item(request, pk):
-    checkout_item = CheckoutItem.objects.get(pk=pk)
+    checkout_item = get_object_or_404(CheckoutItem, pk=pk, user=request.user)
     checkout_item.delete()
     return redirect('cart:view-cart')
 

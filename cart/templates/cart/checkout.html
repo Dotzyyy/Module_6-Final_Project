@@ -13,7 +13,7 @@
         <p>Error.</p>
         {% endif %}
         <p>€{{item.total_price}}</p>
-        <a href="{% url 'cart:remove-item' item.product.pk %}">Remove Item</a>
+        <a href="{% url 'cart:remove-item' item.pk %}">Remove Item</a>
     </li>
     {% endfor %}
 </ul>
