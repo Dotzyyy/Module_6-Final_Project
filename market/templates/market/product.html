@@ -39,7 +39,7 @@
 
                                 </div>
                                 <div class="col text-right align-self-center">
-                                    <a class="btn" href="{% url 'cart:add-item' product.pk %}">Add to cart</a>
+                                    <a class="btn" href="{% url 'cart:add-item' product.pk %}?weight=" onclick="this.href = this.href + document.getElementById('weight').value">Add to cart</a>
                                 </div>
                                 
                             </div>

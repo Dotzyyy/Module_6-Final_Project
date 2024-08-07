@@ -38,8 +38,10 @@ def view_cart(request):
 
 def add_item(request, pk):
     product = Product.objects.get(pk=pk)
+    weight = request.GET.get('weight', 1)
+    
     checkout_item, created = CheckoutItem.objects.get_or_create(product=product,user=request.user)
-    checkout_item.quantity += 1
+    checkout_item.quantity += Decimal(weight)
     checkout_item.save()
     return redirect('cart:view-cart')
 
