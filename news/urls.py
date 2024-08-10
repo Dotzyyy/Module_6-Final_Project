@@ -7,7 +7,7 @@ from .views import (
     PostDeleteView,
     UserPostListView
 )
-from . import views
+
 
 urlpatterns = [
     path('', PostListView.as_view(), name='news-page'),

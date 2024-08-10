@@ -1,8 +1,9 @@
 from typing import Any
-from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
 from django.views.generic import (
     ListView,
     DetailView,
@@ -43,7 +44,7 @@ class UserPostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-
+@method_decorator(staff_member_required, name='dispatch')
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','status','content']
@@ -53,6 +54,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'status', 'content']
@@ -67,7 +69,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
-
+@method_decorator(staff_member_required, name='dispatch')
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'

@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, CurrentMetalPrice
-from datetime import date
+from .models import Product
 import logging
-from decimal import Decimal
 from .utils import final_metal_price
+
 # Create your views here.
 
 logger = logging.getLogger(__name__)

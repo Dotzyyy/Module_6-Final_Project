@@ -114,6 +114,26 @@ footer {
 }
 
 
+
+/* Profile */
+
+
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+
+/* News */
+
+.article-img {
+    height: 4em;
+    width: 4em;
+    margin-right: 1em;
+  }
+
 /* Product Page */
 
 .product-page {
