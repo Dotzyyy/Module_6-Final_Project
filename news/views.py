@@ -1,8 +1,9 @@
 from typing import Any
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.mail import send_mail
 from django.utils.decorators import method_decorator
 from django.views.generic import (
     ListView,
@@ -11,7 +12,10 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
+from .models import Post, Subscriber
+from .forms import SubscriberForm
+
+from django.http import HttpResponse
 
 
 def news(request):
@@ -79,3 +83,32 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscriberForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Optionally, send a confirmation email
+            send_mail(
+                'Welcome to the Precius Metals Newsletter',
+                'We appreciate your patronage!',
+                'from@example.com',
+                [form.cleaned_data['email']],
+                fail_silently=False,
+            )
+            return redirect('news/news_page.html')  # Redirect to a success page or show a message
+    else:
+        form = SubscriberForm()
+    return render(request, 'news/subscribe.html', {'form': form})
+
+def unsubscribe(request):
+    email = request.GET.get('email')
+    if email:
+        try:
+            subscriber = Subscriber.objects.get(email=email)
+            subscriber.delete()
+            return render(request, 'unsubscribe.html')
+        except Subscriber.DoesNotExist:
+            return HttpResponse("This email address is not subscribed.")
+    return HttpResponse("No email address provided.")

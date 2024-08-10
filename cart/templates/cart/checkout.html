@@ -9,6 +9,7 @@
         
         {% if item.metal_price %}
         <p>{{ item.product.metal_type|title }}, price/(g): €{{ item.metal_price }}/g</p>
+        <p>{{ item.weight }}/g</p>
         {% else %}
         <p>Error.</p>
         {% endif %}

@@ -47,18 +47,21 @@
         {% endfor %}
     </div>
 
-</section>
-<section>
-    <div>
+    <section>
         <div>
-            <h2>Follow the Lastest Metal Trends</h2>
-            <p>New Article Every Week</p>
+            <div>
+                <h2>Follow the Latest Metal Trends</h2>
+                <p>New Article Every Week</p>
+            </div>
+            <div>
+                <form method="post" action="{% url 'subscribe' %}">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="user@example.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
         </div>
-        <div>
-            <button>Submit</button>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 {% endblock %}

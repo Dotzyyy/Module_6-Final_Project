@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import Profile
+
 
 
 def register(request):
@@ -11,6 +14,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            account_type = form.cleaned_data.get('account_type')
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account creation successful!')
             return redirect('login')

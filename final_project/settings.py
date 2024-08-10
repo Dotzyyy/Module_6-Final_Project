@@ -139,6 +139,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
+SITE_URL = 'http://127.0.0.1:8000/'
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'GMT'

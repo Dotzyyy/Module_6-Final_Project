@@ -15,9 +15,9 @@ def view_cart(request):
         {
             'pk' : item.pk,
             'product': item.product,
-            'quantity': item.quantity,
-            'metal_price': final_metal_price(item.product),
-            'total_price': final_metal_price(item.product) * item.quantity
+            'weight': item.weight,
+            'metal_price': final_metal_price(item.product, request.user),
+            'total_price': final_metal_price(item.product, request.user) * item.weight
         }
         for item in checkout_items
     ]
@@ -42,7 +42,7 @@ def add_item(request, pk):
     weight = request.GET.get('weight', 1)
     
     checkout_item, created = CheckoutItem.objects.get_or_create(product=product,user=request.user)
-    checkout_item.quantity += Decimal(weight)
+    checkout_item.weight += Decimal(weight)
     checkout_item.save()
     return redirect('cart:view-cart')
 

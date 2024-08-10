@@ -16,7 +16,7 @@ def about(request):
 
 def product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    metal_price = final_metal_price(product)
+    metal_price = final_metal_price(product, request.user)
 
     logger.debug(f"Product: {product.name}, Metal Type: {product.metal_type}, Metal Price: {metal_price}")
 
@@ -31,7 +31,7 @@ def all_products(request):
     product_list = [
         {
             'product': product,
-            'metal_price': final_metal_price(product)
+            'metal_price': final_metal_price(product, request.user)
         }
         for product in products
     ]
