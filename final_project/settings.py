@@ -34,7 +34,7 @@ METAL_API_KEY = os.getenv('METAL_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','final-project-ucd.onrender.com' ,'https://final-project-ucd.onrender.com' ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','module-6-final-project.onrender.com' ,'https://module-6-final-project.onrender.com' ]
 
 
 # Application definition
