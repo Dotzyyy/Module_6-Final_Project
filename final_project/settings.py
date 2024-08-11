@@ -27,14 +27,14 @@ load_dotenv(dotenv_path=env_path)
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o^ibd6)z3&qlugoq9$dgc458+)-4@3v(^9ut$d@owg@no$fnb6'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 METAL_API_KEY = os.getenv('METAL_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','final-project-ucd.onrender.com' ,'https://final-project-ucd.onrender.com' ]
 
 
 # Application definition
@@ -95,17 +95,7 @@ WSGI_APPLICATION = 'final_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-''' DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'metal_prices',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-'''
+
 database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
     'default': dj_database_url.parse(database_url)
