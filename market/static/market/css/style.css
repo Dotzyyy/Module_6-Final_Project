@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+    background-color: #1a1919;
+
+}
 
 body {
     background-color: #1E1E1E;
@@ -14,20 +18,84 @@ body {
 
 /* Navbar */
 
-nav {
-    padding: 2rem, 0, 2rem, 0;
-    border-bottom: solid 1px #313131;
+.site-header {
     
+    padding: 0.8rem 0;
 }
 
-.nav-link {
-    color: #FFFFFF;
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 1rem; 
+}
+
+.navbar-brand {
+display: flex;
+align-items: center;
+color: #FFFFFF;
+font-size: 1.75rem;
+font-weight:600;
 
 }
 
-.nav-link:hover {
-    color: #B2B2B2;
+.navbar-brand > i {
+    margin-right: 0.25rem;
+}
 
+.navbar-brand:hover {
+    color:#ff9b3d;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 0.75rem;
+}
+
+.nav-item.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item.nav-link:hover {
+    color: #ff9b3d;
+}
+
+.nav-item-alt-1 {
+    background-color: #303030;
+    border: 1px solid #949494;
+    border-radius: 0.25rem;
+}
+
+.nav-item-alt-2 {
+    color: #000000;
+    background-color: #F5F5F5;
+    border-radius: 0.25rem;
+}
+
+button.nav-item.nav-link {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
+button.nav-item.nav-link:hover {
+    background-color: #555; 
+}
+
+
+button.nav-item.nav-link.nav-item-alt-1:hover {
+    background-color: #1f8c74; 
 }
 
 /* Home */
@@ -74,14 +142,39 @@ nav {
 
 /* Home Product Items */
 
+.home-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    
+}    
+
+
 .home-product-item {
     border-radius: 0.8em;
     font-size: 0.8em;
-    padding: 2.5em;
-    width: 100%;
-    margin-right: 1rem;
+    padding: 3.5em;
+    margin-bottom: 1rem;
+    flex: 0 0 calc(33.33% - 1rem);
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit; 
+    display: block;
+}
 
+.home-product-item:hover {
+    background-color: #6a6a6a !important;
+    cursor: pointer;
     
+}
+
+@media (max-width: 768px) {
+    .home-product-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 [id^="9"] {
@@ -104,6 +197,55 @@ nav {
 }
 
 #silver {
+    background-color: #785098;
+}
+
+
+/* Home Newsletter Signup */
+
+.newsletter-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #1E1E1E;
+    border-top: 1px solid #313131;
+
+}
+
+.newsletter-div {
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Shadow for depth */
+}
+
+.newsletter-form {
+    margin-top:  1rem;
+}
+
+.newsletter-input {
+    padding: 0.75rem;
+    border-radius: 0.30rem;
+    border: 1px solid #645d5d;
+    width: 80%;
+    max-width: 20rem;
+
+}
+
+.newsletter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: #6479E5;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.newsletter-btn:hover {
     background-color: #785098;
 }
 
@@ -147,7 +289,7 @@ footer {
 
 
 .card {
-    max-width: 1000px;
+    
     width: 100%;
     padding: 4rem;
     background-color: #1E1E1E;
@@ -164,10 +306,7 @@ footer {
     .info{padding: 0}
 }
 
-.checked {
-    color: rgb(255, 217, 0);
-    margin-right: 1vh
-}
+
 .fa-star-half-full {
     color: rgb(255, 217, 0)
 }

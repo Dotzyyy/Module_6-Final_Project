@@ -4,7 +4,7 @@
 <!--Welcome Banner-->
 <section id="welcome-banner" class="p-5 text-center bg-image" class="mask"
     style="background-image:url('{{ MEDIA_URL }}metal-banner.jpg');">
-    <!-- "background-image:url('{{ MEDIA_URL }}metal-banner.jpg');"-->
+    
 
     <div class="mt-5">
         <div class="d-flex justify-content-center align-items-center h-100">
@@ -31,7 +31,7 @@
     </div>
 </section>
 
-<section class="d-flex justify-content-center align-items-center h-100 home-product-container">
+<section class="d-flex align-items-center h-100 home-product-container">
     <div>
         <h2>
             All Metals
@@ -40,28 +40,28 @@
     </div>
     <div class="home-product-list">
         {% for product in products %}
-        <div id="{{ product.name|slugify }}" class="home-product-item">
-            <h3><a href="{% url 'product' product.id %}">{{ product.name }}</a></h3>
-            <p>{{ product.blurb}}</p>
-        </div>
+        <a href="{% url 'product' product.id %}" id="{{ product.name|slugify }}" class="home-product-item">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.blurb }}</p>
+        </a>
         {% endfor %}
     </div>
-
-    <section>
+</section>
+<section class="newsletter-section">
+    <div class="newsletter-div">
         <div>
-            <div>
-                <h2>Follow the Latest Metal Trends</h2>
-                <p>New Article Every Week</p>
-            </div>
-            <div>
-                <form method="post" action="{% url 'subscribe' %}">
-                    {% csrf_token %}
-                    <input type="email" name="email" placeholder="user@example.com" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
+            <h2>Follow the Latest Metal Trends</h2>
+            <p>New Article Every Week</p>
         </div>
-    </section>
+        <div>
+            <form class="newsletter-form" method="post" action="{% url 'subscribe' %}">
+                {% csrf_token %}
+                <input class="newsletter-email" type="email" name="email" placeholder="user@example.com" required>
+                <button class="newsletter-btn" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}
