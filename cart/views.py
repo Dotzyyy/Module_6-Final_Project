@@ -10,7 +10,7 @@ from decimal import Decimal
 def view_cart(request):
     checkout_items = CheckoutItem.objects.filter(user=request.user)
 
-    # Prepare the cart items with their calculated metal prices
+   
     cart_items = [
         {
             'pk' : item.pk,
@@ -22,13 +22,13 @@ def view_cart(request):
         for item in checkout_items
     ]
 
-    # Calculate the final price for all items in the cart
+    
     final_price = sum(item['total_price'] for item in cart_items)
     vat_price = final_price * (Decimal(1.23)) #Price with Irish VAT
 
     vat_price = vat_price.quantize(Decimal('0.01'))
 
-    # Create context for rendering
+   
     context = {
         'checkout_items': cart_items,
         'final_price': final_price,
@@ -51,3 +51,40 @@ def remove_item(request, pk):
     checkout_item.delete()
     return redirect('cart:view-cart')
 
+
+def order_confirmed(request):
+    checkout_items = CheckoutItem.objects.filter(user=request.user)
+
+   
+    cart_items = [
+        {
+            'pk' : item.pk,
+            'product': item.product,
+            'weight': item.weight,
+            'metal_price': final_metal_price(item.product, request.user),
+            'total_price': final_metal_price(item.product, request.user) * item.weight
+        }
+        for item in checkout_items
+    ]
+
+    
+    final_price = sum(item['total_price'] for item in cart_items)
+    vat_price = final_price * (Decimal(1.23)) #Price with Irish VAT
+
+    vat_price = vat_price.quantize(Decimal('0.01'))
+
+   
+    context = {
+        'checkout_items': cart_items,
+        'final_price': final_price,
+        'vat_price': vat_price,
+    }
+
+    
+    return render(request,'cart/order_confirmed.html', context)
+
+
+def clear_cart(request):
+    """View to clear the user's cart and redirect to the product page."""
+    CheckoutItem.objects.filter(user=request.user).delete() 
+    return redirect('all-products') 

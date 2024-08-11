@@ -3,6 +3,7 @@
             {% if user.is_staff %}
 
             <a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
+            
             {% endif %}
             {% for post in posts %}
                 <article class="media content-section">

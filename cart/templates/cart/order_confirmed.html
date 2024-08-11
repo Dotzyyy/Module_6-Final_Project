@@ -1,6 +1,8 @@
 {% extends "market/base.html" %}
 {% block content %}
-<h2>My Cart</h2>
+<h2>Order Confirmed</h2>
+
+<p>Thank you for your purchase! Your order is on its way.</p>
 <ul class="cart-product-list">
     {% for item in checkout_items %}
     <li class="cart-product-item">
@@ -16,20 +18,22 @@
             {% endif %}
             <p class="product-price">€{{item.total_price}}</p>
         </div>    
-        <a class="remove-item" href="{% url 'cart:remove-item' item.pk %}">
-            <i class="fas fa-times"></i>
-        </a>
         
     </li>
     {% endfor %}
 </ul>
+
 <div class="final-price">
     <h3>Final Price</h3>
-    <p class="product-price">€{{ vat_price }} inc.VAT</p>
-    <p class="price-no-vat">€{{ final_price }} exc.VAT</p>
+    <p class="product-price">€{{ vat_price }} inc. VAT</p>
+    <p class="price-no-vat">€{{ final_price }} exc. VAT</p>
 </div>
+
 <div class="cart-buttons">
-    <a href="{% url 'all-products' %}" class="btn btn-secondary">Continue Shopping</a>
-    <a href="{% url 'cart:order-confirmed'%}" class="btn btn-primary">Pay Now</a>
+    <!-- Button to continue shopping and clear the cart -->
+    <form method="post" action="{% url 'cart:clear-cart' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Continue Shopping</button>
+    </form>
 </div>
 {% endblock content %}

@@ -51,7 +51,7 @@ class PostDetailView(DetailView):
 @method_decorator(staff_member_required, name='dispatch')
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title','status','content']
+    fields = ['title','subject','content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -61,7 +61,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 @method_decorator(staff_member_required, name='dispatch')
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'status', 'content']
+    fields = ['title', 'subject', 'content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -11,3 +11,8 @@ class CheckoutItem(models.Model):
 
     def __str__(self):
         return f'{self.weight}g x {self.product.name}' 
+
+    @classmethod
+    def clear_cart(cls, user):
+        """Clear all items in the cart for the given user."""
+        cls.objects.filter(user=user).delete()
