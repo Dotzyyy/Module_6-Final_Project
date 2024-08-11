@@ -3,6 +3,7 @@ from .models import CheckoutItem
 from market.models import Product
 from market.utils import final_metal_price
 from decimal import Decimal
+from django.contrib import messages
 # Create your views here.
 
 
@@ -38,6 +39,9 @@ def view_cart(request):
     return render(request, 'cart/checkout.html', context)
 
 def add_item(request, pk):
+    if not request.user.is_authenticated:
+        messages.warning(request, f'You must be logged in to access the market')
+        return redirect('login')
     product = Product.objects.get(pk=pk)
     weight = request.GET.get('weight', 1)
     
