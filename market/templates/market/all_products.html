@@ -3,16 +3,25 @@
 <h2>All Products</h2>
 <ul class="all-products-list">
     {% for item in product_list %}
-    <li class="all-products-item">
-        <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-        <h3>{{ item.product.name }}</h3>
-        <p>{{ item.product.description }}</p>
-        {% if item.metal_price %}
-        <p>{{ item.product.metal_type|title }}, price/(g): €{{ item.metal_price }}/g</p>
-        {% else %}
-        <p>Error.</p>
-        {% endif %}
-        <a href="{% url 'product' item.product.id %}">More Info</a>
+    
+        <li class="all-products-item">
+          
+       <a href="{% url 'product' item.product.id %}">   
+        <img class="all-products-img" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+        </a> 
+        <div>
+            <a href="{% url 'product' item.product.id %}">
+                <h3>{{ item.product.name }}</h3>
+            </a>
+            <p>{{ item.product.description }}</p>
+            {% if item.metal_price %}
+            <p>{{ item.product.metal_type|title }}, price/(g):</p>
+            <p class="product-price"> €{{ item.metal_price }}/g</p>
+            {% else %}
+            <p>Error.</p>
+            {% endif %}
+        </div>
+        <a class="product-link" href="{% url 'product' item.product.id %}">More Info</a>
     </li>
     {% endfor %}
 </ul>

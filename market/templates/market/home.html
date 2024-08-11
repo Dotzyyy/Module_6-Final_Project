@@ -2,34 +2,35 @@
 {% block content %}
 
 <!--Welcome Banner-->
-<section id="welcome-banner" class="p-5 text-center bg-image" class="mask"
+<section id="welcome-banner" class="text-center bg-image"
     style="background-image:url('{{ MEDIA_URL }}metal-banner.jpg');">
-    
 
-    <div class="mt-5">
-        <div class="d-flex justify-content-center align-items-center h-100">
-            <div>
-                <h2 class="mb-3">
-                    Welcome to Precious Metals!
-                </h2>
-                <p class="mb-3">Ireland's No.1 Provider of Bullion</p>
-                <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Sign Up</a>
-                <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Login</a>
 
-            </div>
+    <div class="mask d-flex justify-content-center align-items-center h-100">
+        <div>
+
+            <h2 class="mb-3">
+                Welcome to Precious Metals!
+            </h2>
+            <p class="mb-3">Ireland's No.1 Provider of Bullion</p>
+
+            {% if user.is_authenticated %}
+
+            <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Shop</a>
+
+            {% else %}
+
+            <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="{% url 'register' %}" role="button">Sign Up</a>
+            <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="{% url 'login' %}" role="button">Login</a>
+
+            {% endif %}
+
         </div>
     </div>
 
+
 </section>
 
-<section>
-    <div>
-        <a href="http://www.kitco.com/connecting.html">
-            <img class="kitco-img" src="http://www.kitconet.com/charts/metals/gold/t24_au_en_eukg_2.gif" BORDER="0"
-                alt="[Most Recent Quotes from www.kitco.com]">
-        </a>
-    </div>
-</section>
 
 <section class="d-flex align-items-center h-100 home-product-container">
     <div>

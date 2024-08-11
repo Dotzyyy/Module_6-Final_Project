@@ -9,15 +9,23 @@
 
                     <div class="row">
                         <div class="col-md-6 text-center align-self-center">
-                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </div>
                         <div class="col-md-6 info">
                             <div class="row title">
                                 <div class="col">
                                     <h2>{{ product.name }}</h2>
-                                    <p>{{ product.blurb }}</p>
+                                    <p><span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star-half-full"></span>
+                                        <span id="reviews">1590 Reviews</span>
+                                    </p>
+                                    
                                     {% if metal_price %}
-                                    <p>{{ product.metal_type|title }}, price/(g): €{{ metal_price }}/g</p>
+                                    <p>{{ product.metal_type|title }}, price/(g):</p>
+                                    <p class="product-price"> €{{ metal_price }}/g</p>
                                     {% else %}
                                     <p>Error.</p>
                                     {% endif %}
@@ -27,7 +35,7 @@
                                     </a>
                                 </div>
                             </div>
-
+                            
 
 
                             <div class="row">
@@ -35,13 +43,15 @@
                                     <label for="amount-grams">Weight(g):</label>
                                     <input type="number" id="weight" name="weight" min="1" step="0.01"
                                         placeholder="min. 1(g)">
-                                       
+
 
                                 </div>
                                 <div class="col text-right align-self-center">
-                                    <a class="btn" href="{% url 'cart:add-item' product.pk %}?weight=" onclick="this.href = this.href + document.getElementById('weight').value">Add to cart</a>
+                                    <a class="btn" href="{% url 'cart:add-item' product.pk %}?weight="
+                                        onclick="this.href = this.href + document.getElementById('weight').value">Add to
+                                        cart</a>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
