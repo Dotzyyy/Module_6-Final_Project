@@ -9,7 +9,7 @@
         <img class="cart-product-image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
         <div class="cart-product-info">
             <h3>{{ item.product.name }}</h3>
-            
+
             {% if item.metal_price %}
             <p>{{ item.product.metal_type|title }} price per (g): €{{ item.metal_price }}/g</p>
             <p>Amount in Cart: {{ item.weight }}/g</p>
@@ -17,8 +17,8 @@
             <p>Error.</p>
             {% endif %}
             <p class="product-price">€{{item.total_price}}</p>
-        </div>    
-        
+        </div>
+
     </li>
     {% endfor %}
 </ul>

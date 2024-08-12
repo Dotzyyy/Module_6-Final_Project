@@ -3,12 +3,12 @@
 <h2>All Products</h2>
 <ul class="all-products-list">
     {% for item in product_list %}
-    
-        <li class="all-products-item">
-          
-       <a href="{% url 'product' item.product.id %}">   
-        <img class="all-products-img" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-        </a> 
+
+    <li class="all-products-item">
+
+        <a href="{% url 'product' item.product.id %}">
+            <img class="all-products-img" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+        </a>
         <div>
             <a href="{% url 'product' item.product.id %}">
                 <h3>{{ item.product.name }}</h3>

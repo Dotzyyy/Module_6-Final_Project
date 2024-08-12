@@ -155,38 +155,33 @@
             </div>
             <!-- Right -->
           </div>
-          <h6 class="text-uppercase fw-bold mb-4">
+          <h5 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Precious Metals
-          </h6>
+          </h5>
           <p>
             Here you can use rows and columns to organize your footer content. Lorem ipsum
             dolor sit amet, consectetur adipisicing elit.
           </p>
         </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
+
+
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
+          <h5 class="text-uppercase fw-bold mb-4">
             Products
-          </h6>
+          </h5>
+
           <p>
             <a href="#!" class="text-reset">Angular</a>
           </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
+          {% for product in products %}
+          <a href="{% url 'product' product.id %}" id="{{ product.name|slugify }}" class="home-product-item">
+            <h3>{{ product.name }}</h3>
+          </a>
+          {% endfor %}
         </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
@@ -211,13 +206,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> Dublin 2, Ireland</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            davidwebtesting@gmail.com
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone me-3"></i> +353 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> +353 01 234 567 89</p>
         </div>
         <!-- Grid column -->
       </div>
