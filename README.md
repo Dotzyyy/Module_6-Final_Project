@@ -67,6 +67,10 @@ Featured Technologies:
 
 ### Current Problems and Future Updates.
 
+Some problems include unsatisfactory CSS which I chose not to obsess over too much as it can sometimes never feel complete and also get in the way of more pressing matters. In terms of features, I would have liked to apply a more in depth cart system that includes a way to add a users address and have a google maps view of location for the order confirmed screen. 
+For the products page I would like to add more dimensions other than grams such as width, length and thickness.
+I would also like to look into creating a graph that auto updates with the latest metal trends but I did not have time to investigate too far. Although perhaps pgadmins graph option could be utilised.
+
 
 
 ## How to run the database on render
