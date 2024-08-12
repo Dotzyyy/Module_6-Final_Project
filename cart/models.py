@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from market.models import Product
 # Create your models here.
 
+
+#Model to help display the relevant item in a users cart
 class CheckoutItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     weight = models.PositiveIntegerField(default=1)

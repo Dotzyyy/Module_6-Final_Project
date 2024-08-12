@@ -3,7 +3,7 @@ from django.utils import timezone
 from .models import CurrentMetalPrice
 from .metal_api import fetch_prices
 
-class MetalPriceUpdateMiddleware:
+class MetalPriceUpdateMiddleware:      #Custom Middleware that triggers an API call if there are no metal prices for the current date
     def __init__(self, get_response):
         self.get_response = get_response
 

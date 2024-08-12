@@ -9,11 +9,12 @@ logger = logging.getLogger(__name__)
 
 def fetch_prices():
     api_key = (os.getenv('METAL_API_KEY'))
-    client = Client(api_key)
-    print(os.getenv('METAL_API_KEY'))
+    client = Client(api_key) # Client imported from ready made metalpriceapi.client
+    
+    
 
     try:
-        response = client.fetchLive(base='EUR', currencies=['XAU', 'XAG', 'XPT', 'XPD'])
+        response = client.fetchLive(base='EUR', currencies=['XAU', 'XAG', 'XPT', 'XPD']) # Fetches the current metal prices in gold silver platinum and palladium
 
         logger.info("API Response: %s", response)
 
@@ -22,14 +23,14 @@ def fetch_prices():
 
         rates = response.get('rates', {})
 
-        # Extract prices from the response
+        # Retrieve prices (Prices gathered in euro appear in the following symbols)
         gold_price = rates.get('EURXAU')
         silver_price = rates.get('EURXAG')
         platinum_price = rates.get('EURXPT')
         palladium_price = rates.get('EURXPD')
         
 
-        # Convert to Decimal and handle potential errors
+        # Convert to Decimal
         def to_decimal(value):
             try:
                 return Decimal(value)
@@ -41,7 +42,7 @@ def fetch_prices():
         platinum_price = to_decimal(platinum_price)
         palladium_price = to_decimal(palladium_price)
 
-        # Save prices to the database
+        # Store prices in database
         CurrentMetalPrice.objects.create(
             gold_price=gold_price,
             silver_price=silver_price,
@@ -49,7 +50,7 @@ def fetch_prices():
             palladium_price=palladium_price,
         )
             
-
+        #logging test
         logger.info("Prices have been updated successfully.")
 
     except Exception as e:

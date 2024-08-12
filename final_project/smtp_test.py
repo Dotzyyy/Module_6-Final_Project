@@ -4,7 +4,7 @@ import os
 
 
 
-# SMTP Configuration using environment variables
+# SMTP Configuration 
 EMAIL_HOST = 'email-smtp.eu-north-1.amazonaws.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

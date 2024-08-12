@@ -14,6 +14,7 @@ def home(request):
 def about(request):
     return render (request, 'market/about.html')
 
+#View that displays a given product using pk id and the matching metal price
 def product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     metal_price = final_metal_price(product, request.user)
@@ -25,6 +26,8 @@ def product(request, product_id):
         'metal_price': metal_price,
     }
     return render(request, 'market/product.html', context)
+
+# View that displays a list of all the products. Seperate from the list seen on the homepage.
 
 def all_products(request):
     products = Product.objects.all()

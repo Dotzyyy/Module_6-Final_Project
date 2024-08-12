@@ -138,6 +138,9 @@ button.nav-item.nav-link.nav-item-alt-1:hover {
     background-color: #393939; 
 }
 
+.nav-active {
+    color: white;
+}
 
 
 /* Home */

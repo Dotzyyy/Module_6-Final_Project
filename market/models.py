@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+
+# A model where the current and historical prices are stored
 class CurrentMetalPrice(models.Model):
     date = models.DateField(auto_now_add=True)
     gold_price = models.DecimalField(max_digits=20, decimal_places=10, null=True, blank=True)
@@ -13,6 +15,8 @@ class CurrentMetalPrice(models.Model):
         return f"Metal prices for {self.date}"
     
 
+
+# A model that helps display the relevant information about a selected product
 class Product(models.Model):
 
     METALS = [

@@ -16,7 +16,7 @@
 
             {% if user.is_authenticated %}
 
-            <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="#" role="button">Shop</a>
+            <a data-mdb-ripple-init class="btn btn-outline-light btn-lg m-2" href="{% url 'all-products' %}" role="button">Shop</a>
 
             {% else %}
 
