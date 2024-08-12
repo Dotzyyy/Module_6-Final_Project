@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.utils.decorators import method_decorator
 from django.views.generic import (
@@ -89,18 +90,19 @@ def subscribe(request):
         form = SubscriberForm(request.POST)
         if form.is_valid():
             form.save()
-            # Optionally, send a confirmation email
+            
             send_mail(
                 'Welcome to the Precius Metals Newsletter',
                 'We appreciate your patronage!',
-                'from@example.com',
+                'davidwebtesting@gmail.com',
                 [form.cleaned_data['email']],
                 fail_silently=False,
             )
-            return redirect('news/news_page.html')  # Redirect to a success page or show a message
+            messages.success(request, f'Welcome to world of Precious Metals!')
+            return redirect('/news/')  # Redirect to a success page and show a message
     else:
         form = SubscriberForm()
-    return render(request, 'news/subscribe.html', {'form': form})
+    return render(request, 'news/subscribe.html', {'form': form}) #fail, generally for email already in use
 
 def unsubscribe(request):
     email = request.GET.get('email')

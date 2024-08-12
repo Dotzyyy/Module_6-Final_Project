@@ -11,7 +11,7 @@
             <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="current-status article-content">Status: {{ post.get_status_display }}</p>
+        <p class="article-content"><strong>Subject:</strong> {{ post.subject }}</p>
         <p class="article-content">{{ post.content }}</p>
     </div>
 </article>

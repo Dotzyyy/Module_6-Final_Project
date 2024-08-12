@@ -2,8 +2,8 @@
 {% block content %}
 {% if user.is_staff %}
 
-<a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
 
+<a href="{% url 'post-create' %}" class="btn btn-primary btn-sm mt-2 mb-2 ml-auto">Create Post</a>
 {% endif %}
 {% for post in posts %}
 <article class="media content-section">
@@ -14,7 +14,7 @@
             <small class="text-muted">{{ post.date_posted|date:"dS F, Y" }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="current-status article-content">Status: {{ post.get_status_display }}</p>
+        <p class="article-content"><strong>Subject:</strong> {{ post.subject }}</p>
         <p class="article-content">{{ post.content }}</p>
     </div>
 </article>

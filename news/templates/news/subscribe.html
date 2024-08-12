@@ -1,10 +1,12 @@
 {% extends 'market/base.html' %}
 
 {% block content %}
-<h1>Subscribe to Our Newsletter</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Subscribe</button>
-</form>
+<div class="subscribe-container">
+    <h1 class="subscribe-title">Subscribe to Our Newsletter</h1>
+    <form method="post" class="subscirbe-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
 {% endblock %}
